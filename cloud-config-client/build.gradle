@@ -1,0 +1,28 @@
+plugins {
+  id 'org.springframework.boot' version '2.6.6'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+dependencyManagement {
+  imports {
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
+dependencies {
+  implementation(project(':rest-template'))
+
+  implementation('org.springframework:spring-context')
+  implementation('org.springframework.boot:spring-boot-autoconfigure')
+  implementation('org.springframework.cloud:spring-cloud-starter-config')
+}
+

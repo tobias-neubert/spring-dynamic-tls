@@ -1,0 +1,7 @@
+# Replacing TLS material for spring boot applications at runtime
+
+- In order to let cloud config use a custom rest template you have to enable the bootstrap configuration via command line argument ```spring.cloud.bootstrap.enabled=true```, configure the cloud config server uri in ```bootstrap.yml``` and replace the default ```ConfigServicePropertySourceLocator``` with a custom one, registered in ```spring.factories``` as ```org.springframework.cloud.bootstrap.BootstrapConfiguration=neubert.tobias.spring.cloud.config.client.tls.DynamicTlsConfigClientBootstrapConfiguration```
+
+- Spring offers a default RestTemplateBuilder that you can inject into your beans in order to build RestTemplates using ```RestTemplateBuilder.build()```. Then you can define ```RestTemplateCustomizers``` in order to set a custom SSLContext with your custom truststore. But that builder is not available during bootstrapping.
+
+- TLSProperties cannot be ConfigurationProperties. At least I got an exception using it that way. It seems it makes problems to have two configurations, bootstrap and the normal one. For the cloud config client we have to configure the tLSProperties in the bootstrap context and for the normal use in the usual spring context. I managed to get it working for the Bootstrap Context but when it comes to initializing the normal context, I got an exception.

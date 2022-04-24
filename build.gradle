@@ -1,0 +1,22 @@
+repositories {
+  mavenCentral()
+}
+
+ext {
+  set('springCloudVersion', "2021.0.1")
+}
+
+allprojects {
+  repositories {
+    maven {
+      url = 'https://artifactory.n7lab.io/maven'
+      credentials {
+        username = artifactoryUsername
+        password = artifactoryPassword
+      }
+    }
+  }
+
+  group = 'neubert.tobias.spring.dynamic-tls'
+  version = '0.0.1-SNAPSHOT'
+}

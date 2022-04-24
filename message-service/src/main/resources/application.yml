@@ -1,0 +1,5 @@
+server.port: 8445
+neubert.tobias.tls:
+  identity-cert-resource: classpath:tls/certificate.pem
+  identity-key-resource: classpath:tls/private.key
+  trust-resource: classpath:tls/certificate.pem

@@ -1,0 +1,8 @@
+rootProject.name = 'spring-dynamic-tls'
+
+include ":jetty"
+include ":rest-template"
+include ":cloud-config-client"
+include ":cloud-config-server"
+include ":hello-world"
+include ":message-service"

@@ -1,0 +1,1 @@
+org.springframework.cloud.bootstrap.BootstrapConfiguration=neubert.tobias.spring.rest.tls.DynamicTlsConfig

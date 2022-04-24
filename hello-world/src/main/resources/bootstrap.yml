@@ -1,0 +1,13 @@
+server.port: 8443
+
+spring:
+  application:
+    name: hello-world
+  cloud:
+    config:
+      uri: https://localhost:8444/
+
+neubert.tobias.tls:
+  identity-cert-resource: classpath:tls/certificate.pem
+  identity-key-resource: classpath:tls/private.key
+  trust-resource: classpath:tls/certificate.pem
